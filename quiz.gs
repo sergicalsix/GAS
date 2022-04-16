@@ -20,7 +20,7 @@ function myFunction() {
     else{
       s1 = Math.abs(score1[i] - ans1)
       s2 = Math.abs(score2[i] - ans2)
-      score.push([user[i][0],  s1+s2, score1[i][0], score2[i][0]])
+      score.push([user[i][0],  s1+s2, [score1[i][0],s1], [score2[i][0],s2]])
     }
   }
   score.sort(function(a, b){
@@ -29,7 +29,7 @@ function myFunction() {
     return 0;
   });
 
-  Logger.log("順位:[名前,獲得スコア,合計の誤差,1問目の回答,2問目の回答]")
+  Logger.log("順位:[名前,獲得スコア,合計の誤差,1問目の回答と誤差,2問目の回答と誤差]")
   for(var i=0;i<29;i++){  //列のループ
     if (i<30){
       Logger.log("%s位 %s点 : %s", (i+1).toString(),(5-i).toString(),score[i])
@@ -40,5 +40,9 @@ function myFunction() {
     rank_user.push(score[i][0])
   }
   Logger.log(rank_user)
+
+
+
+  
   
 }
