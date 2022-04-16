@@ -30,10 +30,15 @@ function myFunction() {
   });
 
   Logger.log("順位:[名前,獲得スコア,合計の誤差,1問目の回答と誤差,2問目の回答と誤差]")
+  let score_ = 0;
   for(var i=0;i<29;i++){  //列のループ
+    if (i<5){
+      score_ = 5-i
+    }
     if (i<30){
-      Logger.log("%s位 %s点 : %s", (i+1).toString(),(5-i).toString(),score[i])
+      Logger.log("%s位 %s点 : %s", (i+1).toString(),score_.toString(),score[i])
     } 
+    score_ = 0
   }
   let rank_user = [];
   for(var i=0;i<29;i++){  //列のループ
